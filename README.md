@@ -2,19 +2,16 @@ deepr
 =====
 
 An R package to streamline the training, fine-tuning and predicting processes for deep learning. It aims to further simplify the functions in packages such as 'deepnet' and 'darch'.
-<br>
 
 ### Installation
 ```
 library(devtools)
 install_github("woobe/deepr")
 ```
-<br>
 
 ### Example 1
 
 Extracting hidden features from original predictors (x) and creating new predictors (x_new).
-<br>
 
 #### 1.1 Load Library
 ```
@@ -25,13 +22,16 @@ library(deepr)
 ```
 x <- matrix(rnorm(1000000), nrow = 5000)
 dim(x)
+```
+```
 [1] 5000  200
 ```
 
 #### 1.3 Train a RBM model with 100 hidden features
 ```
 model_rbm <- train_rbm(x, n_features = 100)
-
+```
+```
 =====================================================================
 [deepr]: Training a Restricted Boltzmann Machine
 =====================================================================
@@ -46,7 +46,8 @@ model_rbm <- train_rbm(x, n_features = 100)
 #### 1.4 Transform original x into new x
 ```
 x_new <- transform_x(model_rbm, x)
-
+```
+```
 =====================================================================
 [deepr]: Transforming Predictors Using a Trained RBM
 =====================================================================
@@ -55,7 +56,10 @@ x_new <- transform_x(model_rbm, x)
 [deepr]: Returning new predictors (x_new) ...
 [deepr]: All Done! Total Duration: 1 sec.
 =====================================================================
-
+```
+```
 dim(x_new)
+```
+```
 [1] 5000   100
 ```
