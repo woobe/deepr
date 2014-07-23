@@ -17,6 +17,9 @@
 #' ## Transform the original predictors (x) into new predictors (x_new)
 #' x_new <- transform_x(model_rbm, x)
 #'
+#'@export
+#'@import deepnet
+#'@import caret
 
 train_rbm <- function(x,
                       n_features = 100,
@@ -75,10 +78,10 @@ train_rbm <- function(x,
   ## Training RBM with deepnet::rbm.train
   ## Note: using x_trim instead of x0
   ## Leave most settings as default
-  model_rbm <- deepnet::rbm.train(x_trim,
-                                  hidden = n_features,
-                                  batchsize = n_batchsize,
-                                  numepochs = n_epochs)
+  model_rbm <- rbm.train(x_trim,
+                         hidden = n_features,
+                         batchsize = n_batchsize,
+                         numepochs = n_epochs)
 
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ## Return

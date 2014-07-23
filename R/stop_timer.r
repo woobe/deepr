@@ -3,6 +3,8 @@
 #' @examples
 #' tt <- start_timer()
 #' stop_timer(tt)
+#'
+#' @export
 
 stop_timer <- function(time_start) {
   time_diff <- proc.time() - time_start

@@ -5,6 +5,9 @@
 #'
 #' @examples
 #' activate_core(4)
+#'
+#' @export
+#' @import doSNOW
 
 activate_core <- function(n_core = 4, verbose = TRUE) {
 

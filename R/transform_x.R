@@ -7,6 +7,9 @@
 #' ## Extracts hidden features and create new predictors.
 #' model_rbm <- train_rbm(x, n_features = 10)
 #' x_new <- transform_x(model_rbm, x)
+#'
+#' @export
+#' @import deepnet
 
 transform_x <- function(model_rbm, x) {
 
@@ -42,7 +45,7 @@ transform_x <- function(model_rbm, x) {
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   cat("[deepr]: Converting original predictors (x) into new ones (x_new) ...\n")
-  x_new <- deepnet::rbm.up(model_rbm$rbm, x_norm)
+  x_new <- rbm.up(model_rbm$rbm, x_norm)
 
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ## Return

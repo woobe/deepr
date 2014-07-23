@@ -12,9 +12,9 @@ Description: An R package to streamline the training, fine-tuning and
     predicting processes for deep learning based on 'darch' and 'deepnet'.
 License: MIT
 Depends:
-    R (>= 3.0.0),
+    R (>= 3.0.0)
+Imports:
     caret,
     deepnet,
     h2o,
-    foreach,
     doSNOW
