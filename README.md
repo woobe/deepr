@@ -1,7 +1,8 @@
 deepr
 =====
 
-An R package to streamline the training, fine-tuning and predicting processes for deep learning. It aims to further simplify the functions in packages such as 'deepnet' and 'darch'.
+An R package to streamline the training, fine-tuning and predicting processes for deep learning. 
+It aims to further simplify the functions in packages such as 'h2o' and 'deepnet'.
 
 ### Installation
 ```
