@@ -1,8 +1,8 @@
 Package: deepr
 Type: Package
 Title: deepr: Steamlining Deep Learning Procedures in R (Prototype)
-Version: 0.0.2
-Date: 2014-07-23
+Version: 0.0.3
+Date: 2014-08-01
 Authors@R: c(
     person("Jo-fai", "Chow", email = "jofai.chow@gmail.com",
     role = c("aut", "cre")
@@ -17,4 +17,5 @@ Imports:
     caret,
     deepnet,
     h2o,
-    doSNOW
+    doSNOW,
+    RCurl
