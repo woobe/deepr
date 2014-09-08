@@ -1,19 +1,22 @@
-#' Upgrade H2O Package and JVM to the latest or a specific version
+#' Install/Upgrade H2O Package and JVM to the latest or a specific bleeding edge version
 #'
-#' @param model_rbm A trained RBM object from train_rbm(...).
+#' @param h2o_ver Specific a version number. If left empty (null), it will install the latest version.
 #'
 #' @examples
-#' ## Upgrade it to the latest version
-#' upgrade_h2o()
+#' ## Install/upgrade h2o to the latest bleeding edge version
+#' install_h2o()
 #'
-#' ## Upgrade it to a specific version
-#' upgrade_h2o(h2o_ver = '1442')
+#' ## Install a specific version (e.g. 1500)
+#' install_h2o(h2o_ver = '1500')
+#'
+#' ## Force overwritting existing version
+#' install_h2o(h2o_ver = '1500', force = TRUE)
 #'
 #' @export
 #' @import RCurl stringr
 
 
-upgrade_h2o <- function(h2o_ver = NULL) {
+install_h2o <- function(h2o_ver = NULL, force = FALSE) {
 
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ## Determine the latest version of H2O (if h2o_ver is not specified)
@@ -39,7 +42,7 @@ upgrade_h2o <- function(h2o_ver = NULL) {
     cat("[deepr]: Checking current H2O version ...\n")
     h2o_ver_installed <- as.character(packageVersion("h2o"))
     h2o_ver_installed <- substr(h2o_ver_installed,
-                                nchar(h2o_ver_installed)-4+1,
+                                nchar(h2o_ver_installed) - 4 + 1,
                                 nchar(h2o_ver_installed))
     chk_h2o_ver <- h2o_ver == h2o_ver_installed
 
@@ -47,13 +50,14 @@ upgrade_h2o <- function(h2o_ver = NULL) {
 
     ## If there is no previously installed H2O ...
     chk_h2o_ver <- FALSE
+
   }
 
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ## If the versions do not match / there is no previously installed H2O
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  if (chk_h2o_ver) {
+  if ((chk_h2o_ver) & (force == FALSE)) {
 
     ## Display message if the system has the current version
     cat("[deepr]: You have H2O version", h2o_ver, "already.\n")
