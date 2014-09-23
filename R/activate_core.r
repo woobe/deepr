@@ -7,7 +7,9 @@
 #' activate_core(4)
 #'
 #' @export
-#' @import doSNOW
+#' @import foreach
+#' @import parallel
+#' @import doParallel
 
 activate_core <- function(n_core = 4, verbose = TRUE) {
 
@@ -15,8 +17,8 @@ activate_core <- function(n_core = 4, verbose = TRUE) {
 
   if (verbose) cat("[deepr]: Activaing parallel processing ... ")
 
-  ## Activate Cores
-  registerDoSNOW(makeCluster(n_core, type="SOCK"))
+  cl <- makeCluster(n_core)
+  registerDoParallel(cl)
 
   if (verbose) cat(n_core, "cores have been successfully activated in", stop_timer(tt), "seconds.\n")
 
