@@ -28,7 +28,7 @@ h2o_feaSelect <- function(x_train, y_train,
   suppressMessages(library(h2o))
 
   ## Initiate H2O Cluster
-  localH2O <- h2o.init("localhost", nthreads = n_threads)
+  localH2O <- h2o.init(nthreads = n_threads)
   train_hex <- as.h2o(localH2O, df_train)
 
   ## ===========================================================================
@@ -208,6 +208,7 @@ h2o_feaSelect <- function(x_train, y_train,
   output <- list(best_var = best_var,
                  result = df_result_all,
                  summary = df_summary,
+                 zscores = df_z,
                  ggplot = p)
   return(output)
 
