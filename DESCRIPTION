@@ -12,13 +12,13 @@ Description: An R package to streamline the training, fine-tuning and
     predicting processes for deep learning (and other algorithms).
 License: MIT
 Depends:
-    R (>= 3.0.0)
-Imports:
+    R (>= 3.0.0),
     caret,
     deepnet,
-    parallel,
-    doParallel,
     RCurl,
     dplyr,
     tidyr,
     ggplot2
+Imports:
+    parallel,
+    doParallel
