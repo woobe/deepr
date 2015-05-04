@@ -64,3 +64,23 @@ dim(x_new)
 ```
 [1] 5000   100
 ```
+
+
+#### 1.5 Install or upgrade H2O's R package quickly
+```
+## Automatically install the latest version
+install_h2o()
+```
+
+```
+## Install a specific version
+install_h2o(h2o_ver = "1500")
+```
+
+
+```
+## Overwrite the current R package 
+install_h2o(force = TRUE)
+```
+
+

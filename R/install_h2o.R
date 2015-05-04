@@ -101,7 +101,7 @@ install_h2o <- function(h2o_ver = NULL, force = FALSE) {
 
     ## Initialise a H2O Cluster and force it to download
     cat("[deepr]: Initialising a local cluster ...\n")
-    localH2O <- h2o.init(forceDL = TRUE)
+    localH2O <- h2o.init(forceDL = FALSE)
 
     ## Shut down the cluster
     cat("[deepr]: Shutting down the local cluster ...\n")
